@@ -9,33 +9,33 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CountriesService {
-  gendersRepository: any;
+
 
   constructor(
     @InjectRepository(Countries)
-    private CountriesService: Repository<Countries>
+    private CountriesRepository: Repository<Countries>
   ) { }
 
   create(CreateCountryDto: CreateCountryDto) {
-    return  this.CountriesService.save(CreateCountryDto);
+    return  this.CountriesRepository.save(CreateCountryDto);
   }
 
   findAll()  {
-    return this.CountriesService.find();
+    return this.CountriesRepository.find();
   }
 
   findOne(id: string) {
-    const menu = this.CountriesService.findOne({ where: {id}});
+    const menu = this.CountriesRepository.findOne({ where: {id}});
     return menu;
   }
   
-  async update(uuid:string,UpdateCountryDto:UpdateCountryDto): Promise<void>{
-    await this.CountriesService.update(uuid,UpdateCountryDto) ;
+  async update(uuid:string,UpdateCountryDto:UpdateCountryDto){
+     await this.CountriesRepository.update(uuid,UpdateCountryDto) ;
     
   }
 
   remove(uuid: string) {
-    this.CountriesService.delete(uuid);
+    this.CountriesRepository.delete(uuid);
     return "eliminado";
   }
 }

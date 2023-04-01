@@ -24,7 +24,7 @@ export class BrandsController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBrandDto: UpdateBrandDto) {
-    return this.brandsService.update(id, updateBrandDto);
+     this.brandsService.update(id, updateBrandDto);
   }
 
   @Delete(':id')

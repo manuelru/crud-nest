@@ -27,8 +27,8 @@ export class BrandsService {
     return menu;
   }
   
-  async update(uuid:string,UpdateBrandDto:UpdateBrandDto): Promise<void>{
-    await this.brandsRepository.update(uuid,UpdateBrandDto) ;
+  async update(uuid:string,updateBrandDto:UpdateBrandDto): Promise<void>{
+    await this.brandsRepository.update(uuid,updateBrandDto) ;
     
   }
 
